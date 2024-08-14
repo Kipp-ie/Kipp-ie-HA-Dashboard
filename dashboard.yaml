@@ -1,0 +1,147 @@
+button_card_templates: !include_dir_merge_named "custom_components/ui_lovelace_minimalist/__ui_minimalist__/ulm_templates/"
+
+title: "Thuis"
+theme: "minimalist-desktop"
+background: "var(--background-image)"
+views:
+    - title: "Thuis"
+      view: 0
+      icon: "mdi:home"
+      type: sections
+      sections:
+        - type: grid
+          title: "Ruimtes"
+          cards:
+          - type: 'custom:button-card'
+            template: card_title
+            name: Welkom thuis.
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                template: card_navigate
+                label: 'Woonkamer'
+                variables:
+                  ulm_card_navigate_path: 1
+                  ulm_card_navigate_icon: mdi:sofa
+              - type: "custom:button-card"
+                template: card_navigate
+                label: 'Kamer Jens'
+                variables:
+                  ulm_card_navigate_path: 2
+                  ulm_card_navigate_icon: mdi:bed
+              - type: "custom:button-card"
+                template: card_navigate
+                label: 'Bijkeuken'
+                variables:
+                  ulm_card_navigate_path: 3
+                  ulm_card_navigate_icon: mdi:washing-machine
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                template: card_navigate
+                label: 'Buiten'
+                variables:
+                  ulm_card_navigate_path: 4
+                  ulm_card_navigate_icon: mdi:flower
+              - type: "custom:button-card"
+                template: card_navigate
+                label: 'Zolder'
+                variables:
+                  ulm_card_navigate_path: 5
+                  ulm_card_navigate_icon: mdi:roof
+              - type: "custom:button-card"
+                template: card_navigate
+                label: 'Schuur'
+                variables:
+                  ulm_card_navigate_path: 6
+                  ulm_card_navigate_icon: mdi:car
+        - type: grid
+          title: "Weer"
+          cards:
+          - type: "custom:button-card"
+            template: card_weather
+            entity: weather.buienradar
+            variables:
+              ulm_card_weather_name: " "
+              ulm_card_weather_primary_info:
+                - wind_speed
+                - precipitation_probability
+              ulm_card_weather_backdrop:
+                fade: true
+        - type: grid
+          title: "Personen"
+          cards:
+          - type: vertical-stack
+            cards:
+              - type: 'custom:button-card'
+                template: card_person
+                entity: person.jens
+                variables:
+                  ulm_card_person_entity: person.jens
+                  ulm_card_person_use_entity_picture: true
+              - type: 'custom:button-card'
+                template: card_person
+                entity: person.jens
+                variables:
+                  ulm_card_person_entity: person.jens
+                  ulm_card_person_use_entity_picture: true
+              - type: 'custom:button-card'
+                template: card_person
+                entity: person.jens
+                variables:
+                  ulm_card_person_entity: person.jens
+                  ulm_card_person_use_entity_picture: true        
+        
+                
+            
+    - title: "Woonkamer"
+      view: 1
+      icon: "mdi:sofa"
+      type: sections
+      sections:
+        - type: grid
+          title: "Lampen"
+          cards:
+            - type: horizontal-stack
+              cards:
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_1
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_enable_color: 
+                    ulm_card_light_name: "Lamp 1"
+                    ulm_card_light_force_background_color: true
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_2
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_name: "Lamp 2"
+                    ulm_card_light_enable_color: true
+                    ulm_card_light_force_background_color: true
+            - type: horizontal-stack
+              cards:
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_3
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_enable_color: 
+                    ulm_card_light_name: "Lamp 3"
+                    ulm_card_light_force_background_color: true
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_4
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_name: "Lamp 4"
+                    ulm_card_light_enable_color: true
+                    ulm_card_light_force_background_color: true
+    - title: "Kamer Jens"
+      view: 2
+      icon: "mdi:bed"
+    
+    - title: "Bijkeuken"
+      view: 3
+      icon: "mdi:washing-machine"
