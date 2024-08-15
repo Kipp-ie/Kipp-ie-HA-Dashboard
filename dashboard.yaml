@@ -29,32 +29,35 @@ views:
                 variables:
                   ulm_card_navigate_path: 2
                   ulm_card_navigate_icon: mdi:bed
+              
+          - type: horizontal-stack
+            cards:
               - type: "custom:button-card"
                 template: card_navigate
                 label: 'Bijkeuken'
                 variables:
                   ulm_card_navigate_path: 3
                   ulm_card_navigate_icon: mdi:washing-machine
-          - type: horizontal-stack
-            cards:
               - type: "custom:button-card"
                 template: card_navigate
                 label: 'Buiten'
                 variables:
                   ulm_card_navigate_path: 4
                   ulm_card_navigate_icon: mdi:flower
-              - type: "custom:button-card"
-                template: card_navigate
-                label: 'Zolder'
-                variables:
-                  ulm_card_navigate_path: 5
-                  ulm_card_navigate_icon: mdi:roof
-              - type: "custom:button-card"
-                template: card_navigate
-                label: 'Schuur'
-                variables:
-                  ulm_card_navigate_path: 6
-                  ulm_card_navigate_icon: mdi:car
+          - type: horizontal-stack
+            cards:
+            - type: "custom:button-card"
+              template: card_navigate
+              label: 'Zolder'
+              variables:
+                ulm_card_navigate_path: 5
+                ulm_card_navigate_icon: mdi:home-roof
+            - type: "custom:button-card"
+              template: card_navigate
+              label: 'Schuur'
+              variables:
+                ulm_card_navigate_path: 6
+                ulm_card_navigate_icon: mdi:car
         - type: grid
           title: "Weer"
           cards:
@@ -91,8 +94,31 @@ views:
                 variables:
                   ulm_card_person_entity: person.jens
                   ulm_card_person_use_entity_picture: true        
-        
-                
+        - type: grid
+          title: "Apparaten"
+          cards:
+          - type: 'custom:button-card'
+            template: card_battery
+            entity: sensor.telefoon_jens_battery_level
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.telefoon_jens_battery_level
+              ulm_card_battery_battery_level_danger: 30
+              ulm_card_battery_battery_level_warning: 80
+              ulm_card_battery_name: Telefoon Jens
+              ulm_card_battery_charging_animation: true
+              ulm_card_battery_battery_state_entity_id: sensor.telefoon_jens_battery_state
+              ulm_card_battery_charger_type_entity_id: sensor.telefoon_jens_charger_type
+          - type: 'custom:button-card'
+            template: card_battery
+            entity: sensor.telefoon_saskia_battery_level
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.telefoon_saskia_battery_level
+              ulm_card_battery_battery_level_danger: 30
+              ulm_card_battery_battery_level_warning: 80
+              ulm_card_battery_name: Telefoon Saskia
+              ulm_card_battery_charging_animation: true
+              ulm_card_battery_battery_state_entity_id: sensor.telefoon_saskia_battery_state
+              ulm_card_battery_charger_type_entity_id: sensor.telefoon_saskia_charger_type       
             
     - title: "Woonkamer"
       view: 1
@@ -112,6 +138,7 @@ views:
                     ulm_card_light_enable_color: 
                     ulm_card_light_name: "Lamp 1"
                     ulm_card_light_force_background_color: true
+                    ulm_card_light_enable_popup: true
                 - type: "custom:button-card"
                   template: card_light
                   entity: light.woonkamer_lamp_2
@@ -138,10 +165,239 @@ views:
                     ulm_card_light_name: "Lamp 4"
                     ulm_card_light_enable_color: true
                     ulm_card_light_force_background_color: true
+            - type: horizontal-stack
+              cards:
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_5
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_enable_color: 
+                    ulm_card_light_name: "Lamp 5"
+                    ulm_card_light_force_background_color: true
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_6
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_name: "Lamp 6"
+                    ulm_card_light_enable_color: true
+                    ulm_card_light_force_background_color: true
+            - type: horizontal-stack
+              cards:
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_8
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_enable_color: 
+                    ulm_card_light_name: "Lamp 8"
+                    ulm_card_light_force_background_color: true
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_9
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_name: "Lamp 9"
+                    ulm_card_light_enable_color: true
+                    ulm_card_light_force_background_color: true
+            - type: horizontal-stack
+              cards:
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_10
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_enable_color: 
+                    ulm_card_light_name: "Lamp 10"
+                    ulm_card_light_force_background_color: true
+                    ulm_card_media_player_enable_controls: true
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.woonkamer_lamp_11
+                  variables:
+                    ulm_card_light_enable_slider: true
+                    ulm_card_light_name: "Lamp 11"
+                    ulm_card_light_enable_color: true
+                    ulm_card_light_force_background_color: true
+                    ulm_card_media_player_enable_controls: true
+                    
+        - type: grid
+          title: "Media"
+          cards: 
+          - type: horizontal-stack
+            cards:
+            - type: "custom:button-card"
+              template: card_media_player
+              entity: media_player.woonkamer_speaker
+              variables:
+                ulm_card_media_player_name : Woonkamer Speaker
+                ulm_card_media_player_enable_art: true
+            - type: "custom:button-card"
+              template: card_media_player
+              entity: media_player.keuken_speaker
+              variables:
+                ulm_card_media_player_name : Keuken Speaker
+                ulm_card_media_player_enable_art: true
+          - type: "custom:button-card"
+            template: card_media_player
+            entity: media_player.chromecast4745
+            variables:
+              ulm_card_media_player_name : Woonkamer TV
+              ulm_card_media_player_enable_art: true    
+        
+        - type: grid
+          title: "Schakelaren"
+          cards:
+          - type: horizontal-stack
+            cards:
+            - type: 'custom:button-card'
+              template: card_power_outlet
+              variables:
+                ulm_card_power_outlet_consumption_sensor: sensor.tv_woonkamer_onmiddellijke_vraag
+                ulm_card_power_outlet_name: Woonkamer TV Schakelaar
+              entity: switch.tv_woonkamer_schakelaar
+          - type: horizontal-stack
+            cards:
+            - type: 'custom:button-card'
+              template: card_power_outlet
+              variables:
+                ulm_card_power_outlet_consumption_sensor: sensor.woonkamer_lamp_8_onmiddelijke_vraag
+                ulm_card_power_outlet_name: Lamp 8
+              entity: switch.woonkamer_lamp_8
+          - type: horizontal-stack
+            cards:
+            - type: 'custom:button-card'
+              template: card_power_outlet
+              variables:
+                ulm_card_power_outlet_consumption_sensor: sensor.woonkamer_lamp_9_onmiddelijke_vraag
+                ulm_card_power_outlet_name: Lamp 9
+              entity: switch.woonkamer_lamp_9_schakelaar
+          - type: horizontal-stack
+            cards:
+            - type: 'custom:button-card'
+              template: card_power_outlet
+              variables:
+                ulm_card_power_outlet_consumption_sensor: sensor.woonkamer_lamp_10_onmiddelijke_vraag
+                ulm_card_power_outlet_name: Lamp 10
+              entity: switch.woonkamer_lamp_10
+        - type: grid
+          title: "Accu's"
+          cards:
+          - type: 'custom:button-card'
+            template: card_battery
+            entity: sensor.woonkamer_dimmer_batterij
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.woonkamer_dimmer_batterij
+              ulm_card_battery_battery_level_danger: 30
+              ulm_card_battery_battery_level_warning: 80
+              ulm_card_battery_name: Woonkamer Dimmer
     - title: "Kamer Jens"
       view: 2
       icon: "mdi:bed"
+      type: sections
+      sections:
+      - type: grid
+        title: "Lampen"
+        cards:
+        - type: horizontal-stack
+          cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.jens_lamp_licht_2
+            variables:
+              ulm_card_light_enable_slider: true
+              ulm_card_light_enable_color: true
+              ulm_card_light_name: "Lamp"
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.jens_bureaulamp
+            variables:
+              ulm_card_light_enable_slider: true
+              ulm_card_light_name: "Bureaulamp"
+              ulm_card_light_enable_color: true
+              ulm_card_light_force_background_color: true
+      - type: grid
+        title: "Media"
+        cards:
+        - type: "custom:button-card"
+          template: card_media_player
+          entity: media_player.kamer_jens_display
+          variables:
+            ulm_card_media_player_name : Jens Kamer Display
+            ulm_card_media_player_enable_art: true  
+      - type: grid
+        title: "Schakelaren"
+        cards:
+        - type: horizontal-stack
+          cards:
+          - type: 'custom:button-card'
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_consumption_sensor: sensor.jens_bureaustroom_onmiddellijke_vraag_2
+              ulm_card_power_outlet_name: Jens Bureaustroom
+            entity: switch.jens_bureaustroom_schakelaar_3
+      - type: grid
+        title: "Accu's"
+        cards:
+        - type: 'custom:button-card'
+          template: card_battery
+          entity: sensor.jens_dimmer_batterij_2
+          variables:
+            ulm_card_battery_charger_type_entity_id: sensor.jens_dimmer_batterij_2
+            ulm_card_battery_battery_level_danger: 30
+            ulm_card_battery_battery_level_warning: 80
+            ulm_card_battery_name: Jens Dimmer
+          
+          
     
     - title: "Bijkeuken"
       view: 3
       icon: "mdi:washing-machine"
+      type: sections
+      sections:
+      - type: grid
+        title: "Lampen"
+        cards:
+        - type: horizontal-stack
+          cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.bijkeuken_lamp_1
+            variables:
+              ulm_card_light_enable_slider: true
+              ulm_card_light_enable_color: true
+              ulm_card_light_name: "Lamp 1"
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.bijkeuken_lamp_2
+            variables:
+              ulm_card_light_enable_slider: true
+              ulm_card_light_name: "Lamp 2"
+              ulm_card_light_enable_color: true
+              ulm_card_light_force_background_color: true
+        
+      
+      - type: grid
+        title: "Media"
+        cards:
+        - type: "custom:button-card"
+          template: card_media_player
+          entity: media_player.bijkeuken_speaker
+          variables:
+            ulm_card_media_player_name : Bijkeuken Speaker
+            ulm_card_media_player_enable_art: true  
+            
+      - type: grid
+        title: "Accu's"
+        cards:
+        - type: 'custom:button-card'
+          template: card_battery
+          entity: sensor.bijkeuken_dimmer_batterij
+          variables:
+            ulm_card_battery_charger_type_entity_id: sensor.bijkeuken_dimmer_batterij
+            ulm_card_battery_battery_level_danger: 30
+            ulm_card_battery_battery_level_warning: 80
+            ulm_card_battery_name: Bijkeuken Dimmer
