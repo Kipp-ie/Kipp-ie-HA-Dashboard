@@ -82,18 +82,21 @@ views:
                 variables:
                   ulm_card_person_entity: person.jens
                   ulm_card_person_use_entity_picture: true
+                  
               - type: 'custom:button-card'
                 template: card_person
-                entity: person.jens
+                entity: person.saskia
                 variables:
-                  ulm_card_person_entity: person.jens
+                  ulm_card_person_entity: person.saskia
                   ulm_card_person_use_entity_picture: true
+                  
               - type: 'custom:button-card'
                 template: card_person
-                entity: person.jens
+                entity: person.saskia
                 variables:
-                  ulm_card_person_entity: person.jens
-                  ulm_card_person_use_entity_picture: true        
+                  ulm_card_person_entity: person.saskia
+                  ulm_card_person_use_entity_picture: true      
+                  
         - type: grid
           title: "Apparaten"
           cards:
@@ -118,7 +121,29 @@ views:
               ulm_card_battery_name: Telefoon Saskia
               ulm_card_battery_charging_animation: true
               ulm_card_battery_battery_state_entity_id: sensor.telefoon_saskia_battery_state
-              ulm_card_battery_charger_type_entity_id: sensor.telefoon_saskia_charger_type       
+              ulm_card_battery_charger_type_entity_id: sensor.telefoon_saskia_charger_type  
+          - type: 'custom:button-card'
+            template: card_battery
+            entity: sensor.telefoon_saskia_battery_level
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.telefoon_saskia_battery_level
+              ulm_card_battery_battery_level_danger: 30
+              ulm_card_battery_battery_level_warning: 80
+              ulm_card_battery_name: Telefoon Thomas (PH)
+              ulm_card_battery_charging_animation: true
+              ulm_card_battery_battery_state_entity_id: sensor.telefoon_saskia_battery_state
+              ulm_card_battery_charger_type_entity_id: sensor.telefoon_saskia_charger_type  
+          - type: 'custom:button-card'
+            template: card_battery
+            entity: sensor.tablet_jens_battery_level
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.tablet_jens_battery_level
+              ulm_card_battery_battery_level_danger: 30
+              ulm_card_battery_battery_level_warning: 80
+              ulm_card_battery_name: Tablet Jens
+              ulm_card_battery_charging_animation: true
+              ulm_card_battery_battery_state_entity_id: sensor.tablet_jens_battery_state
+              ulm_card_battery_charger_type_entity_id: sensor.tablet_jens_charger_type
             
     - title: "Woonkamer"
       view: 1
@@ -401,3 +426,96 @@ views:
             ulm_card_battery_battery_level_danger: 30
             ulm_card_battery_battery_level_warning: 80
             ulm_card_battery_name: Bijkeuken Dimmer
+            
+    - title: "Buiten"
+      view: 4
+      icon: "mdi:flower"
+      type: sections
+      sections:
+      
+      - type: grid
+        title: "Lampen"
+        cards:
+        - type: horizontal-stack
+          cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.buitenlamp_1
+            variables:
+              ulm_card_light_enable_slider: true
+              ulm_card_light_enable_color: true
+              ulm_card_light_name: "Lamp 1"
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.buitenlamp_2
+            variables:
+              ulm_card_light_enable_slider: true
+              ulm_card_light_name: "Lamp 2"
+              ulm_card_light_enable_color: true
+              ulm_card_light_force_background_color: true
+              
+      - type: grid
+        title: "Weer"
+        cards:
+        - type: "custom:button-card"
+          template: card_weather
+          entity: weather.buienradar
+          variables:
+            ulm_card_weather_name: " "
+            ulm_card_weather_primary_info:
+              - wind_speed
+              - precipitation_probability
+            ulm_card_weather_backdrop:
+              fade: true
+              
+    - title: "Zolder"
+      view: 5
+      type: sections
+      icon: "mdi:home-roof"
+      sections:
+      - type: grid
+        title: "Lampen"
+        cards:
+        - type: "custom:button-card"
+          template: card_light
+          entity: light.zolder_lamp_1
+          variables:
+            ulm_card_light_enable_slider: true
+            ulm_card_light_enable_color: true
+            ulm_card_light_name: "Lamp 1"
+            ulm_card_light_force_background_color: true
+        - type: "custom:button-card"
+          template: card_light
+          entity: light.zolder_lamp_2
+          variables:
+            ulm_card_light_enable_slider: true
+            ulm_card_light_name: "Lamp 2"
+            ulm_card_light_enable_color: true
+            ulm_card_light_force_background_color: true
+        - type: "custom:button-card"
+          template: card_light
+          entity: light.zolder_lamp_3
+          variables:
+            ulm_card_light_enable_slider: true
+            ulm_card_light_name: "Lamp 3"
+            ulm_card_light_enable_color: true
+            ulm_card_light_force_background_color: true
+    - title: "Schuur"
+      view: 6
+      type: sections
+      icon: "mdi:car"
+      sections:
+      - type: grid
+        title: "Lampen"
+        cards:
+        - type: "custom:button-card"
+          template: card_light
+          entity: light.schuur_lamp_1
+          variables:
+            ulm_card_light_enable_slider: true
+            ulm_card_light_name: "Lamp 1"
+            ulm_card_light_enable_color: true
+            ulm_card_light_force_background_color: true
+        
+      
